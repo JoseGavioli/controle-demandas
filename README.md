@@ -2,7 +2,7 @@
 
 > Kanban pessoal para acompanhamento de demandas (orçamentos e revisões) numa empresa de esquadrarias de alumínio. Arquivo HTML único, funciona offline, com backup em arquivo real no disco via File System Access API.
 
-[🔗 **Demo ao vivo**](https://SEU-USUARIO.github.io/controle-demandas/) · [📄 Documentação completa](./docs/DOCUMENTACAO.md)
+[🔗 **Demo ao vivo**](https://JoseGaviol.github.io/controle-demandas/) · [📄 Documentação completa](./docs/DOCUMENTACAO.md)
 
 ![preview](./assets/preview.png)
 
@@ -53,7 +53,7 @@ Construí esse app pra resolver exatamente o meu fluxo.
 ## Como rodar
 
 ```bash
-git clone https://github.com/SEU-USUARIO/controle-demandas.git
+git clone https://github.com/JoseGavioli/controle-demandas
 cd controle-demandas
 # clique duplo em index.html — abre no navegador
 ```

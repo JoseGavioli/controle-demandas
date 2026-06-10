@@ -1,6 +1,6 @@
 # Controle de Demandas — Documentação
 
-> App de controle de demandas (orçamentos e revisões) da **EsquadSystem** (JFA Esquadrarias de Alumínio).
+> App de controle de demandas (orçamentos e revisões) da **EsquadSystem**.
 > Arquivo único `Controle_Demandas_Kanban.html`. Offline, autossuficiente, sem dependências de servidor.
 
 ---
@@ -22,7 +22,7 @@
 Um *planner* pessoal em formato Kanban para acompanhar as demandas que chegam dos vendedores (orçamentos, revisões, fechamentos MoB, atualizações). Cada cartão representa **uma demanda** e passa por três fases: **Não iniciado → Na Revisão → Concluído**.
 
 ### Quem usa
-Um único usuário (Alan Prestes), num único PC. Não foi projetado para uso compartilhado.
+Um único usuário (José Gavioli), num único PC. Não foi projetado para uso compartilhado.
 
 ### O que substituiu
 Uma planilha `.xlsm` com formulário de cadastro feito em VBA. A planilha original tinha ~1300 linhas (set/2024 a mai/2026), todas migradas para o app na primeira versão.
@@ -328,7 +328,7 @@ Histórico tinha nomes informais. A migração foi executada uma vez (flag `cd_n
 | Fabio | **Fabio Prestes** |
 | Fabinho | **Fabio Marques** |
 
-**Allan Rene é pessoa distinta** do Alan Prestes — não unificar. Os demais ex-funcionários (Emerson, Tiago, Willians, Renato, RODRIGO*) ficaram inativos no cadastro.
+**Allan Rene é pessoa distinta** do José Gavioli — não unificar. Os demais ex-funcionários (Emerson, Tiago, Willians, Renato, RODRIGO*) ficaram inativos no cadastro.
 
 ### 4.6 Tempo médio é calculado só com dados completos
 As médias do painel só consideram cartões em que **as duas datas existem**. Por exemplo, "médio até revisão" só conta cartões que têm `entrada` E `revisao`. Isso evita falsear o número com cartões incompletos.
@@ -422,4 +422,4 @@ Menu ⋮ → "Restaurar dados originais". **Antes de fazer**, exporte um backup 
 
 ---
 
-*Documento mantido por Alan Prestes. Em caso de dúvida sobre uma decisão, esta documentação é a referência — o código mostra o "como", aqui está o "porquê".*
+*Documento mantido por José Gavioli. Em caso de dúvida sobre uma decisão, esta documentação é a referência — o código mostra o "como", aqui está o "porquê".*
