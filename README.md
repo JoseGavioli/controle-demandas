@@ -1,8 +1,8 @@
 # Controle de Demandas — Kanban offline
 
-> Kanban pessoal para acompanhamento de demandas (orçamentos e revisões) numa empresa de esquadrarias de alumínio. Arquivo HTML único, funciona offline, com backup em arquivo real no disco via File System Access API.
+> Kanban pessoal para acompanhamento de demandas (orçamentos e revisões) numa empresa de esquadrias de alumínio. Arquivo HTML único, funciona offline, com backup em arquivo real no disco via File System Access API.
 
-[🔗 **Demo ao vivo**](https://JoseGaviol.github.io/controle-demandas/) · [📄 Documentação completa](./docs/DOCUMENTACAO.md)
+[🔗 **Demo ao vivo**](https://joseGavioli.github.io/controle-demandas/) · [📄 Documentação completa](./docs/DOCUMENTACAO.md)
 
 ![preview](./assets/preview.png)
 
