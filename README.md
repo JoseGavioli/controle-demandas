@@ -74,6 +74,8 @@ Este repositório contém apenas dados fictícios para demo. Em produção, o ap
 │   └── DOCUMENTACAO.md       # documentação técnica e de usuário
 └── assets/
     └── preview.png
+    └── preview2.png
+    └── preview3.png
 ```
 
 ## Licença
