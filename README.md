@@ -5,7 +5,8 @@
 [🔗 **Demo ao vivo**](https://joseGavioli.github.io/controle-demandas/) · [📄 Documentação completa](./docs/DOCUMENTACAO.md)
 
 ![preview](./assets/preview.png)
-
+![preview](./assets/preview2.png)
+![preview](./assets/preview3.png)
 ---
 
 ## O problema que resolve
