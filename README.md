@@ -11,7 +11,7 @@
 
 ## O problema que resolve
 
-Eu trabalho com revisão e finalização de orçamentos de esquadrarias de alumínio. Os vendedores me mandam pedidos o dia inteiro, e eu precisava acompanhar três coisas: **o que entrou na fila, o que está em revisão e o que já foi entregue**.
+Eu trabalho com revisão e finalização de orçamentos de esquadrias de alumínio. Os vendedores me mandam pedidos o dia inteiro, e eu precisava acompanhar três coisas: **o que entrou na fila, o que está em revisão e o que já foi entregue**.
 
 Antes eu usava uma planilha Excel com um formulário em VBA. Funcionava, mas:
 - O VBA quebrou depois de uma atualização do Office.
@@ -33,11 +33,11 @@ Construí esse app pra resolver exatamente o meu fluxo.
 
 ## Decisões técnicas que valem comentar
 
-**Arquivo HTML único.** Sem build, sem framework, sem servidor. A escolha foi deliberada: usuário único, máquina única, e o requisito de funcionar 100% offline. JavaScript puro com variáveis CSS para tema. ~350 KB todo o app, incluindo dados embutidos e logo em base64.
+**Arquivo HTML único.** Sem build, sem framework, sem servidor. A escolha foi deliberada: usuário único, máquina única, e o requisito de funcionar 100% offline. JavaScript puro com variáveis CSS para tema. ~108 KB todo o app, incluindo dados embutidos e logo em base64.
 
 **Persistência em duas camadas.** localStorage para velocidade no dia a dia, File System Access API para um arquivo real de backup que sobrevive à limpeza de cache. O handle do arquivo fica guardado em IndexedDB para reusar entre sessões. Isso resolve o problema clássico de apps offline perderem dados em manutenção do navegador.
 
-**Cadastro de vendedores como entidade própria.** Inicialmente os "ativos" eram uma lista *hardcoded*. Refatorei para um registro separado quando ficou claro que renomeações eram comuns e que `Fabio` (Prestes) e `Fabinho` (Marques) eram duas pessoas distintas sendo confundidas no histórico. Renomear no cadastro propaga em cascata para todos os cartões vinculados.
+**Cadastro de vendedores como entidade própria.** Inicialmente os "ativos" eram uma lista *hardcoded*. Refatorei para um registro separado quando ficou claro que dois vendedores compartilhavam o mesmo primeiro nome e estavam sendo confundidos no histórico. Renomear no cadastro propaga em cascata para todos os cartões vinculados.
 
 **Tema escuro sem flash.** Um script mínimo no `<head>` aplica o `data-theme` antes do CSS pintar, lendo localStorage ou `prefers-color-scheme`. Tudo o que muda entre temas é variável CSS, então adicionar superfícies novas não exige tocar no JS do tema.
 
