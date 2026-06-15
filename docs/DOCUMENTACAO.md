@@ -1,7 +1,7 @@
 # Controle de Demandas — Documentação
 
 > App de controle de demandas (orçamentos e revisões) de uma empresa de esquadrias de alumínio.
-> Arquivo único `Controle_Demandas_Kanban.html`. Offline, autossuficiente, sem dependências de servidor.
+> Arquivo único `index.html`. Offline, autossuficiente, sem dependências de servidor.
 
 ---
 
@@ -29,7 +29,7 @@ Um único usuário, num único PC. Não foi projetado para uso compartilhado.
 Uma planilha `.xlsm` com formulário de cadastro feito em VBA. A planilha original tinha ~1300 linhas (set/2024 a mai/2026), todas migradas para o app na primeira versão.
 
 ### Stack
-- **Arquivo único HTML** (~350 KB) com CSS e JavaScript embutidos.
+- **Arquivo único HTML** (~108 KB) com CSS e JavaScript embutidos.
 - **Sem frameworks, sem build, sem servidor.**
 - Fontes via Google Fonts com *fallback* nativo do sistema (funciona offline mesmo sem internet).
 - Logo da marca embutida como base64.
@@ -131,7 +131,7 @@ Cadastro central de quem manda demanda pra você. **Não** é a lista de cartõe
 
 | Selo | Significado | O que acontece se eu limpar o cache do navegador |
 |---|---|---|
-| 🟡 **"Backup: só neste navegador"** | dados só no localStorage | **perde tudo** e volta ao seed embutido (1300 originais) |
+| 🟡 **"Backup: só neste navegador"** | dados só no localStorage | **perde tudo** e volta ao seed limpo |
 | 🟢 **"Backup: arquivo vinculado"** | gravando em arquivo real no disco | **dados preservados** no arquivo |
 
 #### Como vincular (uma vez só)
@@ -318,26 +318,13 @@ Antes os ativos eram uma lista *hardcoded* no código. Toda mudança exigia edit
 ### 4.4 Por que `.vbar` em vez de `.bar` no painel
 **Houve uma colisão de classes**. A classe `.bar` foi inicialmente usada tanto para a barra superior do app quanto para as barrinhas de volume do painel. Como a regra das barrinhas vinha depois no CSS, o `background: var(--accent)` (vermelho) sobrescrevia o fundo da barra superior, pintando-a de vermelho. A solução foi renomear as barrinhas pra `.vbar`. **Não voltar a usar `.bar` para algo que não seja a barra superior.**
 
-### 4.5 Mapeamento de nomes (migração automática)
-Histórico tinha nomes informais. A migração foi executada uma vez (flag `cd_names_v2`):
-
-| Antigo | Canônico |
-|---|---|
-| Mari | Mariana Costa |
-| Carlão | Carlos Henrique |
-| Rafa | Rafael Souza |
-| Bruninho* | **Bruno Almeida** |
-| Brunão* | **Bruno Carvalho** |
-
-**Anderson Lima é pessoa distinta** do Rafael Souza — não unificar. Os demais ex-funcionários (Diego, Felipe, Marcos, Paulo, WAGNER*) ficaram inativos no cadastro.
-
-### 4.6 Tempo médio é calculado só com dados completos
+### 4.5 Tempo médio é calculado só com dados completos
 As médias do painel só consideram cartões em que **as duas datas existem**. Por exemplo, "médio até revisão" só conta cartões que têm `entrada` E `revisao`. Isso evita falsear o número com cartões incompletos.
 
-### 4.7 Coluna Concluído precisa de paginação
+### 4.6 Coluna Concluído precisa de paginação
 Sem paginação, 1298 cartões na coluna Concluído travam o navegador e tornam o quadro inútil. A solução é mostrar 20 por vez (mais recentes primeiro) e desativar a paginação durante busca.
 
-### 4.8 Avatar de cartão usa variável de tema, não navy fixo
+### 4.7 Avatar de cartão usa variável de tema, não navy fixo
 No tema escuro o navy fixo ficaria invisível contra o fundo. Por isso o avatar usa `--av-bg` / `--av-ink`, que mudam por tema.
 
 ---
@@ -411,7 +398,7 @@ Menu ⋮ → "Restaurar dados originais". **Antes de fazer**, exporte um backup 
 
 ## 7. Publicação e demonstração
 
-Este projeto é publicado como portfólio público. **Os dados exibidos são fictícios** — tanto clientes/obras quanto vendedores são exemplos inventados para demonstração. Em produção, o app gerencia cerca de 1300 demandas reais de uma empresa de esquadrarias de alumínio, com os dados mantidos apenas localmente (nunca versionados).
+Este projeto é publicado como portfólio público. **Os dados exibidos são fictícios** — tanto clientes/obras quanto vendedores são exemplos inventados para demonstração. Em produção, o app gerencia cerca de 1300 demandas reais de uma empresa de esquadrias de alumínio, com os dados mantidos apenas localmente (nunca versionados).
 
 ### 7.1 Estrutura do repositório
 ```
