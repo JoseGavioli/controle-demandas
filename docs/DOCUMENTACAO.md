@@ -1,6 +1,6 @@
 # Controle de Demandas — Documentação
 
-> App de controle de demandas (orçamentos e revisões) da **EsquadSystem**.
+> App de controle de demandas (orçamentos e revisões) de uma empresa de esquadrias de alumínio.
 > Arquivo único `Controle_Demandas_Kanban.html`. Offline, autossuficiente, sem dependências de servidor.
 
 ---
@@ -13,6 +13,7 @@
 4. [Decisões e armadilhas conhecidas](#4-decisões-e-armadilhas-conhecidas)
 5. [Como modificar / estender](#5-como-modificar--estender)
 6. [Solução de problemas](#6-solução-de-problemas)
+7. [Publicação no GitHub](#7-publicação-no-github)
 
 ---
 
@@ -22,7 +23,7 @@
 Um *planner* pessoal em formato Kanban para acompanhar as demandas que chegam dos vendedores (orçamentos, revisões, fechamentos MoB, atualizações). Cada cartão representa **uma demanda** e passa por três fases: **Não iniciado → Na Revisão → Concluído**.
 
 ### Quem usa
-Um único usuário (José Gavioli), num único PC. Não foi projetado para uso compartilhado.
+Um único usuário, num único PC. Não foi projetado para uso compartilhado.
 
 ### O que substituiu
 Uma planilha `.xlsm` com formulário de cadastro feito em VBA. A planilha original tinha ~1300 linhas (set/2024 a mai/2026), todas migradas para o app na primeira versão.
@@ -31,7 +32,7 @@ Uma planilha `.xlsm` com formulário de cadastro feito em VBA. A planilha origin
 - **Arquivo único HTML** (~350 KB) com CSS e JavaScript embutidos.
 - **Sem frameworks, sem build, sem servidor.**
 - Fontes via Google Fonts com *fallback* nativo do sistema (funciona offline mesmo sem internet).
-- Logo da EsquadSystem embutida como base64.
+- Logo da marca embutida como base64.
 
 ### Como executar
 Clique duplo no `.html` — abre no navegador padrão. Recomendado: **Chrome ou Edge** (o vínculo de arquivo de backup só funciona nesses dois).
@@ -120,7 +121,7 @@ Cadastro central de quem manda demanda pra você. **Não** é a lista de cartõe
 - **Ícone de lixeira** — exclui. **Só é permitido se o vendedor não tiver nenhuma demanda vinculada**. Se tiver, o app bloqueia e sugere desativar.
 
 #### Comportamentos importantes
-- **Renomear vendedor com demandas vinculadas:** o app avisa quantos cartões serão atualizados e propaga o novo nome para todos eles. Isso é intencional — evita ter "Fabio" e "Fabio Prestes" no histórico.
+- **Renomear vendedor com demandas vinculadas:** o app avisa quantos cartões serão atualizados e propaga o novo nome para todos eles. Isso é intencional — evita ter "Bruno" e "Bruno Almeida" no histórico.
 - **Ativo/inativo:** apenas afeta onde o vendedor aparece nas listas. Ativos vão pro topo dos filtros do quadro, da datalist do modal e da tabela do painel. **Os cartões dele continuam visíveis e contabilizados normalmente** — desativar não esconde histórico.
 - **Auto-cadastro:** quando você digita um nome novo numa Nova demanda, ele é criado como ativo. Depois é só ajustar no cadastro se quiser.
 
@@ -174,7 +175,7 @@ Menu ⋮ → "Restaurar dados originais". Volta para os **1300 cartões embutido
 ```js
 {
   id: 1234,                  // sequencial automático
-  vendedor: "Adriana Fernandes",
+  vendedor: "Mariana Costa",
   tipo: "Orçamento",         // | "Revisão" | "MoB - Fechamento" | "Atualização"
   cliente: "OBRA TAL",
   entrada: "2026-05-15",     // ISO (aaaa-mm-dd) ou null
@@ -188,9 +189,9 @@ Menu ⋮ → "Restaurar dados originais". Volta para os **1300 cartões embutido
 ```js
 {
   id: 1,
-  nome: "Adriana Fernandes",
+  nome: "Mariana Costa",
   tel: "(15) 99999-9999",
-  email: "adriana@empresa.com",
+  email: "mariana@empresa.com",
   ativo: true
 }
 ```
@@ -274,7 +275,7 @@ Tudo o que muda entre temas é uma **variável CSS** definida em `:root` (claro)
 | `--faint` | texto terciário/desabilitado |
 | `--line`, `--line2` | divisores |
 | `--accent` | cor de ação (vermelho da marca) |
-| `--navy`, `--red` | cores da identidade EsquadSystem |
+| `--navy`, `--red` | cores da identidade visual da marca |
 | `--todo` / `--rev` / `--done` | cores das três fases |
 | `--col-bg` | fundo translúcido das colunas |
 | `--av-bg`, `--av-ink` | avatar de vendedor |
@@ -285,7 +286,7 @@ Tudo o que muda entre temas é uma **variável CSS** definida em `:root` (claro)
 #### Anti-flash
 Um *script* mínimo no `<head>` aplica `data-theme="dark"` antes do CSS pintar, lendo o localStorage ou `prefers-color-scheme`. Sem isso o app dá um flash branco ao carregar no escuro.
 
-### 3.5 Identidade visual da EsquadSystem
+### 3.5 Identidade visual da marca
 
 - **Navy** `#2e3850` — estrutura, títulos
 - **Vermelho** `#c8202a` — exclusivamente ações pequenas (botões, aba ativa)
@@ -322,13 +323,13 @@ Histórico tinha nomes informais. A migração foi executada uma vez (flag `cd_n
 
 | Antigo | Canônico |
 |---|---|
-| Adriana | Adriana Fernandes |
-| Eitor | José Eitor Rosa |
-| Alan | Alan Prestes |
-| Fabio | **Fabio Prestes** |
-| Fabinho | **Fabio Marques** |
+| Mari | Mariana Costa |
+| Carlão | Carlos Henrique |
+| Rafa | Rafael Souza |
+| Bruninho* | **Bruno Almeida** |
+| Brunão* | **Bruno Carvalho** |
 
-**Allan Rene é pessoa distinta** do José Gavioli — não unificar. Os demais ex-funcionários (Emerson, Tiago, Willians, Renato, RODRIGO*) ficaram inativos no cadastro.
+**Anderson Lima é pessoa distinta** do Rafael Souza — não unificar. Os demais ex-funcionários (Diego, Felipe, Marcos, Paulo, WAGNER*) ficaram inativos no cadastro.
 
 ### 4.6 Tempo médio é calculado só com dados completos
 As médias do painel só consideram cartões em que **as duas datas existem**. Por exemplo, "médio até revisão" só conta cartões que têm `entrada` E `revisao`. Isso evita falsear o número com cartões incompletos.
@@ -400,11 +401,43 @@ Pressione **Esc** para fechar. Se não responder, clique fora do modal (na área
 
 **Solução:** troque de aba e volte. O painel recalcula ao abrir.
 
-### "Tem dois 'Fabio' na lista"
-Confirme o mapeamento na seção 4.5. **Fabio Prestes** e **Fabio Marques** ("Fabinho") são pessoas distintas, isso é intencional.
+### "Tem dois 'Bruno' na lista"
+Confirme o mapeamento na seção 4.5. **Bruno Almeida** e **Bruno Carvalho** ("Bruno (apelido)") são pessoas distintas, isso é intencional.
 
 ### "Preciso recomeçar do zero"
 Menu ⋮ → "Restaurar dados originais". **Antes de fazer**, exporte um backup JSON pra ter como voltar atrás.
+
+---
+
+## 7. Publicação e demonstração
+
+Este projeto é publicado como portfólio público. **Os dados exibidos são fictícios** — tanto clientes/obras quanto vendedores são exemplos inventados para demonstração. Em produção, o app gerencia cerca de 1300 demandas reais de uma empresa de esquadrarias de alumínio, com os dados mantidos apenas localmente (nunca versionados).
+
+### 7.1 Estrutura do repositório
+```
+controle-demandas/
+├── README.md
+├── index.html              # o app (com dados de demonstração)
+├── docs/
+│   └── DOCUMENTACAO.md      # este documento
+└── assets/
+    └── preview.png
+    └── preview2.png
+    └── preview3.png
+```
+
+### 7.2 Como rodar
+```bash
+git clone https://github.com/JoseGavioli/controle-demandas.git
+cd controle-demandas
+# abra index.html no navegador (Chrome ou Edge recomendados)
+```
+
+### 7.3 Demo ao vivo
+Hospedada via GitHub Pages em `https://josegavioli.github.io/controle-demandas/`. Para reproduzir: Settings → Pages → Source "Deploy from a branch" → branch `main`, pasta `/ (root)`.
+
+### 7.4 Persistência e backup
+O app salva no `localStorage` do navegador e, opcionalmente, em um arquivo `.json` real no disco via File System Access API (Chrome/Edge), com gravação a cada alteração e checkpoints automáticos. Esse mecanismo garante que os dados sobrevivam à limpeza de cache do navegador. Backups locais não são versionados (protegidos por `.gitignore`).
 
 ---
 
@@ -416,9 +449,11 @@ Menu ⋮ → "Restaurar dados originais". **Antes de fazer**, exporte um backup 
 | v2 | Painel com KPIs, tabela por vendedor, gráfico de volume mensal/anual |
 | v3 | Vínculo de arquivo de backup (File System Access) + checkpoints 12h/17h |
 | v4 | Normalização de nomes (migração automática única) |
-| v5 | Identidade visual EsquadSystem (paleta navy/vermelho, logo embutida) |
+| v5 | Identidade visual da marca (paleta navy/vermelho, logo embutida) |
 | v6 | Cadastro de vendedores (ativar/desativar, editar, renomear com cascata) |
 | v7 | Tema claro/escuro com persistência e respeito ao tema do sistema |
+| v8 | Versão pública limpa para o GitHub (dados de demonstração fictícios) |
+| v9 | Anonimização de vendedores na versão pública; publicação com GitHub Pages |
 
 ---
 
