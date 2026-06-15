@@ -63,7 +63,7 @@ Recomendado: **Chrome ou Edge** (o vínculo de arquivo de backup só funciona ne
 
 ## Dados de demonstração
 
-Este repositório contém apenas dados fictícios para demo. Em produção, o app gerencia ~1300 demandas reais de uma empresa de esquadrarias.
+Este repositório contém apenas dados fictícios para demo. Em produção, o app gerencia ~1300 demandas reais de uma empresa de esquadrias.
 
 ## Estrutura
 
